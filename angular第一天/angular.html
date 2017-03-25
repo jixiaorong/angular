@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="con">
+        <input type="text" ng-model="text1" ng-init="text2='46' "/>
+        <input type="text" ng-model="text2"/>
+        <button ng-click="add()">=</button>
+        <input type="text" ng-model="text3"/>
+        <p>{{text1}}</p>
+    </div>
+
+<script src="angular.js"></script>
+<script>
+    var app=angular.module("myApp",[]);
+    app.controller("con",function($scope){
+
+        $scope.add=function(){
+            $scope.text3=($scope.text1-0)+($scope.text2-0);
+        }
+        $scope.$watch("text1",function(newVal,oldVal){
+           alert(newVal);
+            alert(oldVal)
+        })
+    })
+</script>
+</body>
+</html>
